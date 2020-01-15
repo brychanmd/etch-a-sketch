@@ -54,7 +54,11 @@ function resize() {
 		element.parentNode.removeChild(element);
 	});
 	
-	let newGrid = window.prompt("Insert a number from 9 - 99", 16);
+	let newGrid = window.prompt("Enter grid width (from 9 - 99)", 24);
+	if (newGrid < 9 || newGrid > 99) {
+		alert("Invalid size")
+		createGrid(24);
+	}
 	createGrid(newGrid);
 }
 

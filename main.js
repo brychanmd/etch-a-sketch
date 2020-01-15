@@ -4,6 +4,18 @@ const shakeBtn = document.getElementById('btnLeft');
 const resizeBtn = document.getElementById('btnRight');
 const gridSize = 26;
 
+let isDrawing = false;
+window.addEventListener("mousedown", e => {
+    if (e) {
+        isDrawing = true;
+    }
+});
+window.addEventListener("mouseup", e => {
+    if (e) {
+        isDrawing = false;
+    }
+});
+
 function createGrid(currentGrid) {
 	for (let i = 0; i < currentGrid; i++) {
 
@@ -20,7 +32,9 @@ function createGrid(currentGrid) {
 	let sq = document.querySelectorAll('.square');
 	sq.forEach(element => {
 		element.addEventListener('mouseover', function () {
-			element.classList.add('active');
+			if (isDrawing) {
+				element.classList.add('active');
+			}
 		});	
 	});
 }

@@ -56,10 +56,11 @@ function resize() {
 	
 	let newGrid = window.prompt("Enter grid width (from 9 - 99)", 24);
 	if (newGrid < 9 || newGrid > 99) {
-		alert("Invalid size")
+		alert("Invalid size");
 		createGrid(24);
+	} else {
+		createGrid(newGrid);
 	}
-	createGrid(newGrid);
 }
 
 shakeBtn.addEventListener('click', function () {
